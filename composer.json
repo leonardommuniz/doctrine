@@ -1,0 +1,9 @@
+{
+    "require": {
+        "doctrine/orm": "^2.8",
+        "doctrine/migrations": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {"App\\Doctrine\\": "src/"}
+    }
+}
