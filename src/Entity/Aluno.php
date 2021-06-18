@@ -77,11 +77,20 @@ class Aluno
   
     public function addCursos(Curso $cursos): self
     {
-        if ($this->cursos->contains($cursos)) {
-            return $this;
+        if (!$this->cursos->contains($cursos)) {
+            $this->cursos->add($cursos);
+            $cursos->addAlunos($this);
         }
-        $this->cursos->add($cursos);
-        $cursos->addAlunos($this);
+        
+        return $this;
+    }
+
+    public function removeCursos(Curso $cursos): self
+    {
+        if ($this->cursos->contains($cursos)) {
+           $this->cursos->removeElement($cursos);
+        }
+        
         return $this;
     }
 }
